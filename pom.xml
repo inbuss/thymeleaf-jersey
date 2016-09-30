@@ -9,7 +9,7 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <name>Thymeleaf Jersey Integration</name>
-    <description>A dialect for Thymeleaf forwarding object-to-string conversions to the appropriate JAX-RS 1.2
+    <description>An extension for Thymeleaf forwarding object-to-string conversions to the appropriate JAX-RS
         ParamConverter. As the necessary functionality is not standardised, a generic JAX-RS solution is not
         possible; this module works on Jersey only.</description>
     <url>https://github.com/inbuss/thymeleaf-jersey</url>
