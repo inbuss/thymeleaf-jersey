@@ -11,10 +11,20 @@ is not possible; this module works on Jersey only. Also, this only works with
 the Standard Dialect - Spring users would probably be content with using the
 existing Spring converter integration, and have no need for this module.
 
-Remember: the Conversion Service only drives double-brace expressions
-(e.g. `${{user.lastLogin}}`). Single-brace ones (`${user.lastLogin}`) are
-not affected by this library, and will keep using `toString()` just like
-before.
+Dependencies
+------------
+
+This extension is a bridge between Jersey and Thymeleaf; it only makes sense
+to use this if both are already present in your project. No further
+dependencies are required.
+
+The extension was built using version 2.23.1 of Jersey. As it relies on a
+non-standardized interface, different versions may or may not work.
+
+The Thymeleaf side is written against the Thymeleaf 3 API. Building a version
+that works with Thymeleaf 2.1 should be possible, but it is not currently
+planned. The Conversion Service is a new feature of Thymeleaf 2.1, so earlier
+versions cannot be supported.
 
 Usage
 -----
@@ -80,5 +90,13 @@ Usage
         }
     }
     ```
+
+4. You're ready. Register `ParamConverter`s for some type yourself or include
+    a library that does so, and use the double-brace syntax when including
+    values of that type in templates. Remember: the Conversion Service only
+    drives double-brace expressions (e.g. `${{user.lastLogin}}`). Single-brace
+    ones (`${user.lastLogin}`) are not affected by this library, and will keep
+    using `toString()` just like before.
+ 
 
 [1]: http://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#conversion-services
